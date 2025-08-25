@@ -18,9 +18,7 @@ com botões básicos de navegação!
 
 ## 📸 Preview
 
-<img src="assets/print1.png" width="300" alt="preview1">
-<img src="assets/print2.png" width="200" alt="preview1">
-<img src="assets/print3.png" height="260" alt="preview1">
+<img src="assets/print1.png" width="300" alt="preview1"> <img src="assets/print2.png" width="200" alt="preview1"> <img src="assets/print3.png" height="260" alt="preview1">
 
 
 
