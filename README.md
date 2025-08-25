@@ -11,7 +11,7 @@ com botões básicos de navegação!
 
 - 📌 **Always on top**
 - ⛵ **Navegação básica**: Voltar, Avançar e Recarregar  
-- ✨ **Carregamento rápido** de qualquer porta `localhost` (ex: `http://localhost:5500`)
+- ⚡ **Carregamento rápido** de qualquer porta `localhost` (ex: `http://localhost:5500`)
   
 ---
 
