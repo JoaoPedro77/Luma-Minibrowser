@@ -1,9 +1,28 @@
 
+
 # 🌙 Luma MiniBrowser
+
+<div align="center">
+  <img src="assets/luma.png" width="200" alt="Logo Luma">
+  <p>Um minibrowser para desenvolvedeores </p>
+  
+  ![GitHub last commit](https://img.shields.io/github/last-commit/JoaoPedro77/Luma-Minibrowser)
+  ![GitHub repo size](https://img.shields.io/github/repo-size/JoaoPedro77/Luma-Minibrowser)
+</div>
 
 Um minibrowser feito em **Electron**.
 O **Luma** permite visualizar páginas locais (ex: `Live Server` do VSCode `ou qualquer outro localhost`) em uma janelinha sempre por cima,
 com botões básicos de navegação!
+
+---
+
+## 📸 Preview
+
+<img src="assets/print1.png" width="300" alt="preview1">
+<img src="assets/print2.png" width="200" alt="preview1">
+<img src="assets/print3.png" height="260" alt="preview1">
+
+
 
 ---
 
@@ -39,11 +58,4 @@ com botões básicos de navegação!
    ```bash
    npm start
    ```
-
----
-
-## 📝 To-Do
-
-* [ ] Atalhos de teclado (ex: `Ctrl+R` para recarregar, `Ctrl+Shift+P` para toggle do alfinete)
-* [ ] Configurações salvas (porta default, always-on-top inicial etc.)
 

@@ -1,0 +1,24 @@
+{
+  "name": "luma-minibrowser",
+  "version": "1.0.0",
+  "description": "mini browser for local testing code",
+  "homepage": "https://github.com/JoaoPedro77/Luma-Minibrowser#readme",
+  "bugs": {
+    "url": "https://github.com/JoaoPedro77/Luma-Minibrowser/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoPedro77/Luma-Minibrowser.git"
+  },
+  "license": "MIT",
+  "author": "JoaoJ",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^37.3.1"
+  }
+}
