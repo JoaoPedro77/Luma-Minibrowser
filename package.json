@@ -1,7 +1,7 @@
 {
   "name": "luma-minibrowser",
   "version": "1.0.0",
-  "description": "mini browser for local testing code",
+  "description": "Um minibrowser para desenvolvedeores",
   "homepage": "https://github.com/JoaoPedro77/Luma-Minibrowser#readme",
   "bugs": {
     "url": "https://github.com/JoaoPedro77/Luma-Minibrowser/issues"
@@ -16,9 +16,24 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
+
+    "build": {
+    "appId": "com.seuusuario.luma",
+    "productName": "Luma MiniBrowser",
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis", 
+      "icon": "src/icon.ico"
+    }
+  },
+
   "devDependencies": {
-    "electron": "^37.3.1"
+    "electron": "^37.3.1",
+    "electron-builder": "^26.0.12"
   }
 }

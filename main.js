@@ -12,6 +12,7 @@ app.on("ready", () => {
         frame: false,
         alwaysOnTop: true, 
         webPreferences: {
+            devTools: false,
             nodeIntegration: true,
             contextIsolation: false,
             webviewTag: true
@@ -20,6 +21,7 @@ app.on("ready", () => {
 
     win.loadFile("index.html");
 });
+
 
 
 // fechar app
@@ -42,3 +44,4 @@ ipcMain.on("toggle-always-on-top", () => {
     win.setAlwaysOnTop(state);
     win.webContents.send("always-on-top-changed", state);
 });
+

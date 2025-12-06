@@ -8,11 +8,25 @@ document.getElementById("back").onclick = () => webview.goBack();
 document.getElementById("forward").onclick = () => webview.goForward();
 document.getElementById("reload").onclick = () => webview.reload();
 
-document.getElementById("go").onclick = () => {
+// Carregar porta salva
+const savedPort = localStorage.getItem("savedPort");
+if (savedPort) {
+    document.getElementById("port").value = savedPort;
+}
+
+const navigateToPort = () => {
     const port = document.getElementById("port").value;
+    localStorage.setItem("savedPort", port);
     webview.loadURL(`http://localhost:${port}`);
 };
 
+document.getElementById("go").onclick = navigateToPort;
+
+document.getElementById("port").onkeydown = (event) => {
+    if (event.key === "Enter") {
+        navigateToPort();
+    }
+};
 
 
 //controles de janela
