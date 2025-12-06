@@ -10,25 +10,30 @@
 </head>
 
 <body>
-    <div id="toolbar">
-        <div id="controls">
-            <button id="back"><i class="ph ph-arrow-left"></i></button>
-            <button id="forward"><i class="ph ph-arrow-right"></i></button>
-            <button id="reload"><i class="ph ph-arrow-clockwise"></i></button>
-            <input id="port" type="text" value="5500">
-            <button id="go"><i class="ph ph-caret-right"></i></button>
+    <div id="app">
+        <div id="toolbar">
+            <div id="controls">
+                <button id="back" @click="goBack"><i class="ph ph-arrow-left"></i></button>
+                <button id="forward" @click="goForward"><i class="ph ph-arrow-right"></i></button>
+                <button id="reload" @click="reload"><i class="ph ph-arrow-clockwise"></i></button>
+                <input id="port" type="text" v-model="port" @keydown.enter="navigateToPort">
+                <button id="go" @click="navigateToPort"><i class="ph ph-caret-right"></i></button>
 
+            </div>
+            <div id="window-controls">
+                <button id="pin" :class="{ active: isPinned }" @click="toggleAlwaysOnTop"><i
+                        class="ph ph-push-pin"></i></button>
+                <button id="maximize" @click="toggleMaximize"><i class="ph ph-square"></i></button>
+                <button id="close" @click="closeApp"><i class="ph ph-x"></i></button>
+            </div>
         </div>
-        <div id="window-controls">
-            <button id="pin" class="active"><i class="ph ph-push-pin"></i></button>
-            <button id="maximize"><i class="ph ph-square"></i></button>
-            <button id="close"><i class="ph ph-x"></i></button>
+
+        <div id="content">
+            <webview id="viewer" ref="webviewRef" src="about:blank" allowpopups></webview>
         </div>
     </div>
 
-    <div id="content">
-        <webview id="viewer" src="http://localhost:5500" allowpopups></webview>
-    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <script src="renderer.js"></script>
 </body>

@@ -1,6 +1,6 @@
 {
   "name": "luma-minibrowser",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Um minibrowser para desenvolvedeores",
   "homepage": "https://github.com/JoaoPedro77/Luma-Minibrowser#readme",
   "bugs": {
@@ -21,7 +21,7 @@
   },
 
     "build": {
-    "appId": "com.seuusuario.luma",
+    "appId": "com.joaoj.luma",
     "productName": "Luma MiniBrowser",
     "files": [
       "**/*"
