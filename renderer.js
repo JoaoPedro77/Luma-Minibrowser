@@ -1,11 +1,12 @@
 const { ipcRenderer } = require("electron");
-const { createApp, ref, onMounted } = Vue;
+const { createApp, ref, onMounted, watch, nextTick } = Vue;
 
 const app = createApp({
     setup() {
         const port = ref("5500");
         const webviewRef = ref(null);
         const isPinned = ref(false);
+        let debounceTimer = null;
 
         // Navigation
         const navigateToPort = () => {
@@ -15,6 +16,19 @@ const app = createApp({
                 webviewRef.value.loadURL(url);
             }
         };
+
+        const debouncedNavigate = () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                if (port.value) {
+                    navigateToPort();
+                }
+            }, 500);
+        };
+
+        watch(port, () => {
+             debouncedNavigate();
+        });
 
         // Webview Controls
         const goBack = () => {
@@ -39,12 +53,25 @@ const app = createApp({
         const toggleAlwaysOnTop = () => ipcRenderer.send("toggle-always-on-top");
 
         // Lifecycle
-        onMounted(() => {
+        onMounted(async () => {
+            await nextTick();
+
             // Load saved port
             const savedPort = localStorage.getItem("savedPort");
             if (savedPort) {
+                // If saved port is different, this will trigger the watcher (debounced)
+                // If it's the same as default, watcher won't trigger.
                 port.value = savedPort;
-                navigateToPort(); 
+            }
+            
+            // Force an initial load immediately (skipping debounce for startup speed)
+            // Using a small timeout to ensure webview is fully attached and ready
+            if (port.value) {
+                setTimeout(() => {
+                    if (webviewRef.value) {
+                        navigateToPort();
+                    }
+                }, 100);
             }
 
             // IPC Listeners
